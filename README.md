@@ -1,9 +1,15 @@
-Fully CMS
-=============
+SwateQcms
+==========================
+
+That cms is extencion to fullycms - <a href="https://github.com/sseffa/fullycms"> https://github.com/sseffa/fullycms </a>
+
+This project is made for learning laravel with good practices.
+If you wanna contact with me - mail rafal.filek@hotmail.com
+
+==========================
 
 ### Laravel 5.1 Content Managment System
 
-## not stable!
 
 <img src="https://raw.githubusercontent.com/sseffa/fullycms/master/screenshots/1.png" width="900" />
 
@@ -36,20 +42,6 @@ Fully CMS
   * Contact Form
   * Breadcrumbs
 
-## Installation
-
-Please check the system requirements before installing sf CMS.
-
-1. You may install by cloning from github, or via composer.
-  * Github: `git clone git@github.com:sseffa/fullycms.git`
-2. From a command line open in the folder, run `composer install`.
-3. Enter your database details into `config/database.php`.
-4. Run `php artisan app:install` to setup and seed your database and admin information
-5. Settings `config/fully.php`. (optional)
-  * Cache enable / disable
-  * image folder
-  * post per page
-  * ...
 
 ## Credits
  * <http://almsaeedstudio.com/preview/>
@@ -64,13 +56,7 @@ Please check the system requirements before installing sf CMS.
  * <https://github.com/mikemand/logviewer/>
 ...
 
-## Screenshots
-
-<img src="https://raw.githubusercontent.com/sseffa/fullycms/master/screenshots/2.png" width="900" />
-<img src="https://raw.githubusercontent.com/sseffa/fullycms/master/screenshots/3.png" width="900" />
-<img src="https://raw.githubusercontent.com/sseffa/fullycms/master/screenshots/4.png" width="900" />
-
-### Licence
-
-[MIT license](http://opensource.org/licenses/MIT)
-# SwateQcms
+## Informations
+  * Made for learning
+  * Extenction to fullycms
+  * If you wanna contact - mail rafal.filek@hotmail.com
