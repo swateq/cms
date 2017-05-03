@@ -1,0 +1,43 @@
+<aside  class="col-sm-4 col-sm-push-8">
+<?php echo $__env->make('frontend/elements/search', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <!-- <div class="widget">
+       <a href="<?php echo route('rss'); ?>"> <img src="<?php echo url('assets/images/rss_button.png'); ?>" /></a>
+    </div> -->
+    <div style="clear: both"></div>
+    <div class="widget categories">
+        <h3>Latest News</h3>
+
+        <div class="row">
+            <div class="col-sm-12">
+             <?php foreach($news as $item): ?>
+
+                        <?php if($item->path && $item->file_name): ?>
+                            <a href="<?php echo URL::route('dashboard.news.show', array('slug'=>$item->slug)); ?>"></a>
+                        <?php else: ?>
+                            <a href="<?php echo URL::route('dashboard.news.show', array('slug'=>$item->slug)); ?>"></a>
+                        <?php endif; ?>
+
+
+                        <a href="<?php echo URL::route('dashboard.news.show', array('slug'=>$item->slug)); ?>"><?php echo $item->title; ?></a>
+                        <br>
+                        <small class="muted"><?php echo $item->created_at; ?></small>
+                        <hr>
+
+
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+    <!--/.categories-->
+
+     <div class="widget categories">
+            <h3>Twitter</h3>
+
+            <div class="row">
+                <div class="col-sm-6">
+
+                </div>
+            </div>
+        </div>
+        <!--/.categories-->
+</aside>

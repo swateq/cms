@@ -73,3 +73,4 @@ Please check the system requirements before installing sf CMS.
 ### Licence
 
 [MIT license](http://opensource.org/licenses/MIT)
+# SwateQcms

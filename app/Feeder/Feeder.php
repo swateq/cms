@@ -13,7 +13,7 @@ class Feeder
      * @var array
      */
     protected $settings = array(
-        'title' => 'Fully CMS',
+        'title' => 'SwateQ CMS',
         'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         'link' => 'link',
     );

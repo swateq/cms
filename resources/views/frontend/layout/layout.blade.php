@@ -36,7 +36,6 @@
 </head><!--/head-->
 <body>
 @include('frontend/layout/menu')
-<span id="forkongithub"><a target="_blank" href="https://github.com/sseffa/fullycms">Fork me on GitHub</a></span>
 @yield('content')
 @include('frontend/layout/footer')
 {!! HTML::script("frontend/js/bootstrap.min.js") !!}

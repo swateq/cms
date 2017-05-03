@@ -1,0 +1,72 @@
+<?php $__env->startSection('content'); ?>
+<?php echo HTML::style('ckeditor/contents.css'); ?>
+
+<?php echo HTML::style('fancybox/css/jquery.fancybox.css'); ?>
+
+<?php echo HTML::style('fancybox/css/jquery.fancybox-buttons.css'); ?>
+
+<?php echo HTML::style('fancybox/css/jquery.fancybox-thumbs.css'); ?>
+
+<?php echo HTML::script('fancybox/js/jquery.mousewheel-3.0.6.pack.js'); ?>
+
+<?php echo HTML::script('fancybox/js/jquery.fancybox.pack.js'); ?>
+
+<?php echo HTML::script('fancybox/js/jquery.fancybox-buttons.js'); ?>
+
+<?php echo HTML::script('fancybox/js/jquery.fancybox-media.js'); ?>
+
+<?php echo HTML::script('fancybox/js/jquery.fancybox-thumbs.js'); ?>
+
+<?php echo HTML::script('assets/js/jquery.lazyload.min.js'); ?>
+
+
+<section id="title" class="emerald">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1><?php echo $photo_gallery->title; ?></h1>
+            </div>
+            <div class="col-sm-6">
+                <?php echo $__env->yieldContent('partial/breadcrumbs', Breadcrumbs::render('photo_gallery.show', $photo_gallery)); ?>
+            </div>
+        </div>
+    </div>
+</section><!--/#title-->
+
+<section class="container">
+
+    <?php echo $photo_gallery->content; ?>
+
+
+    <br>
+    <br>
+    <br>
+
+    <?php if($photo_gallery->photos->count()): ?>
+
+
+    <?php foreach($photo_gallery->photos as $photo): ?>
+    <a rel="group" class="fancybox" href="<?php echo url($photo->path); ?>" title="<?php echo $photo->title; ?>">
+        <img style="border-radius: 20px;" class="lazy left" data-original="<?php echo url('uploads/dropzone/thumb_' . $photo->file_name); ?>"/>
+    </a>
+    <?php endforeach; ?>
+
+    <?php endif; ?>
+</section>
+<script type="text/javascript">
+
+    // fancybox
+    $(document).ready(function () {
+        $(".fancybox").fancybox();
+    });
+
+    // image lazy load
+    $(function () {
+        $("img.lazy").lazyload({
+            effect: "fadeIn"
+        });
+    });
+</script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('frontend/layout/layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

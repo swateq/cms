@@ -16,23 +16,23 @@ class CategoriesTableSeeder extends Seeder
             array(
                 'title' => 'PHP',
                 'slug' => Str::slug('PHP'),
-                'lang' => 'tr', ),
+                'lang' => 'en', ),
             array(
                 'title' => 'SQL',
                 'slug' => Str::slug('SQL'),
-                'lang' => 'tr', ),
+                'lang' => 'en', ),
             array(
                 'title' => 'HTML',
                 'slug' => Str::slug('HTML'),
-                'lang' => 'tr', ),
+                'lang' => 'en', ),
             array(
                 'title' => 'CSS',
                 'slug' => Str::slug('CSS'),
-                'lang' => 'tr', ),
+                'lang' => 'en', ),
             array(
                 'title' => 'Javascript',
                 'slug' => Str::slug('Javascript'),
-                'lang' => 'tr', ),
+                'lang' => 'en', ),
             array(
                 'title' => 'JQuery',
                 'slug' => Str::slug('JQuery'),

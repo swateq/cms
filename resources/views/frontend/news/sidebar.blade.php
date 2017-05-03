@@ -1,8 +1,8 @@
 <aside  class="col-sm-4 col-sm-push-8">
 @include('frontend/elements/search')
-    <div class="widget">
+    <!-- <div class="widget">
        <a href="{!! route('rss') !!}"> <img src="{!! url('assets/images/rss_button.png') !!}" /></a>
-    </div>
+    </div> -->
     <div style="clear: both"></div>
     <div class="widget categories">
         <h3>Latest News</h3>
