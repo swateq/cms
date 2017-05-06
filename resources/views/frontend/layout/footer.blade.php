@@ -44,7 +44,7 @@
         <div class="row">
 
             <div class="col-md-3 col-sm-6">
-                <h4>Latest Blog</h4>
+                <h4>{!!  trans('fully.latest_blog') !!}</h4>
 
                 <div>
                     @foreach($articles as $article)
@@ -66,7 +66,7 @@
             </div>
 
              <div class="col-md-3 col-sm-6">
-                <h4>About Us</h4>
+                <h4>{!!  trans('fully.about_us') !!}</h4>
 
                 <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
 
@@ -85,7 +85,7 @@
 
 
             <div class="col-md-3 col-sm-6">
-                <h4>Tags</h4>
+                <h4>{!!  trans('fully.tags') !!}</h4>
             <div class="tagcloud">
                 @if(isset($tags))
                     @foreach($tags as $tag)
@@ -96,7 +96,7 @@
             </div>
 
             <div class="col-md-3 col-sm-6">
-                <h4>Address</h4>
+                <h4>{!!  trans('fully.address') !!}</h4>
                 <address>
                     <strong>Twitter, Inc.</strong><br>
                     795 Folsom Ave, Suite 600<br>
@@ -140,7 +140,7 @@
                 <ul class="pull-right">
                     <li>{!! link_to_route('dashboard', 'Home') !!}</li>
                     <li>{!! link_to_route('dashboard.faq', 'Faq') !!}</li>
-                    <li>{!! link_to_route('dashboard.contact', 'Contact Us') !!}</li>
+                    <li>{!! link_to_route('dashboard.contact', trans('fully.contact_us') ) !!}</li>
                     <li><a id="gototop" class="gototop" href="#"><i class="icon-chevron-up"></i></a></li>
                     <!--#gototop-->
                 </ul>

@@ -15,6 +15,7 @@ use Fully\Models\Video;
 use Fully\Models\Menu;
 use Fully\Models\Slider;
 use Fully\Models\Setting;
+use Fully\Models\ClientsSay;
 use Fully\Repositories\Article\ArticleRepository;
 use Fully\Repositories\Article\CacheDecorator as ArticleCacheDecorator;
 use Fully\Repositories\Category\CategoryRepository;
@@ -39,6 +40,8 @@ use Fully\Repositories\Slider\SliderRepository;
 use Fully\Repositories\Slider\CacheDecorator as SliderCacheDecorator;
 use Fully\Repositories\Setting\SettingRepository;
 use Fully\Repositories\Setting\CacheDecorator as SettingCacheDecorator;
+use Fully\Repositories\ClientsSay\ClientsSayRepository;
+use Fully\Repositories\ClientsSay\CacheDecorator as ClientsSayCacheDecorator;
 use Fully\Services\Cache\FullyCache;
 
 /**
@@ -261,6 +264,22 @@ class RepositoryServiceProvider extends ServiceProvider
             }
 
             return $setting;
+        });
+        // clients say
+        $app->bind('Fully\Repositories\ClientsSay\ClientsSayInterface', function ($app) {
+
+            $clients_say = new ClientsSayRepository(
+                new ClientsSay()
+            );
+
+            if ($app['config']->get('fully.cache') === true && $app['config']->get('is_admin', false) == false) {
+                $clients_say = new ClientsSayCacheDecorator(
+                    $clients_say,
+                    new FullyCache($app['cache'], 'clients_say')
+                );
+            }
+
+            return $clients_say;
         });
     }
 }

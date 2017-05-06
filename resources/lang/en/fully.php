@@ -7,6 +7,11 @@ return array(
     'button_save'         => 'Save',
     'enter_your_email'    => 'Enter your email',
     'all_rights_reserved' => 'All Rights Reserved',
+    'address'             => 'Address',
+    'tags'                => 'Tags',
+    'about_us'            => 'About us',
+    'latest_blog'         => 'Latest blog',
+    'contact_us'          => 'Contact us',
     /* footer end */
     /* contact page start */
     'contact_form'        => 'Contact Form',

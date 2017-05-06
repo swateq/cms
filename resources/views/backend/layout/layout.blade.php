@@ -47,7 +47,7 @@
     <script src="{!! url('backend/plugins/chartjs/Chart.min.js') !!}" type="text/javascript"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <!-- AdminLTE for demo purposes -->
-    <script src="{!! url('backend/js/demo.js') !!}" type="text/javascript"></script>
+    <!-- <script src="{!! url('backend/js/demo.js') !!}" type="text/javascript"></script> -->
 
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>FullyCMS | Log in</title>
+    <title>SwateQcms | Log in</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="{!! url('backend/bootstrap/css/bootstrap.min.css') !!}" rel="stylesheet" type="text/css" />
@@ -21,10 +21,9 @@
     <![endif]-->
 </head>
 <body class="login-page">
-<span id="forkongithub"><a target="_blank" href="https://github.com/sseffa/fullycms">Fork me on GitHub</a></span>
 <div class="login-box">
     <div class="login-logo">
-        <a href="../../index2.html"><b>fully</b>cms</a>
+        <a href="../../index2.html"><b>SwateQ</b>cms</a>
     </div><!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>

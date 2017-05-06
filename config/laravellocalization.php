@@ -142,7 +142,7 @@ return [
 		//'hz'          => ['name' => 'Herero',                 'script' => 'Latn', 'native' => 'Otjiherero'],
 		//'uz-Latn'     => ['name' => 'Uzbek (Latin)',          'script' => 'Latn', 'native' => 'oʼzbekcha'],
 		//'nds'         => ['name' => 'Low German',             'script' => 'Latn', 'native' => 'Plattdüütsch'],
-		//'pl'          => ['name' => 'Polish',                 'script' => 'Latn', 'native' => 'Polski'],
+		'pl'          => ['name' => 'Polish',                 'script' => 'Latn', 'native' => 'Polski'],
 		//'pt'          => ['name' => 'Portuguese',             'script' => 'Latn', 'native' => 'português'],
 		//'pt-BR'       => ['name' => 'Brazilian Portuguese',   'script' => 'Latn', 'native' => 'português do Brasil'],
 		//'ff'          => ['name' => 'Fulah',                  'script' => 'Latn', 'native' => 'Pulaar'],

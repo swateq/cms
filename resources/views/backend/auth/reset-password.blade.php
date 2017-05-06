@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>sf CMS</title>
+    <title>SwateQ CMS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <!-- CSS are placed here -->
@@ -35,7 +35,7 @@
 <div class="container">
     <div class="row">
         <div style="text-align: center" class="col-md-4 col-md-offset-4">
-            <h1 style="color: #FFFFFF">Fully CMS</h1>
+            <h1 style="color: #FFFFFF">SwateQ CMS</h1>
 
             <div class="panel panel-default">
                 <div class="panel-body">

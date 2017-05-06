@@ -5,7 +5,6 @@ namespace Fully\Repositories\Slider;
 /**
  * Interface SliderInterface.
  *
- * @author Sefa Karagöz <karagozsefa@gmail.com>
  */
 interface SliderInterface
 {

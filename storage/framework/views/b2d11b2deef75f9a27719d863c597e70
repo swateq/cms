@@ -1,0 +1,54 @@
+<?php $__env->startSection('content'); ?>
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1> Faq
+        <small> | Add Faq</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="<?php echo url(getLang(). '/admin/faq'); ?>"><i class="fa fa-question"></i> Faq</a></li>
+        <li class="active">Add Faq</li>
+    </ol>
+</section>
+<br>
+<br>
+<div class="container">
+
+    <?php echo Form::open(array('action' => '\Fully\Http\Controllers\Admin\FaqController@store')); ?>
+
+    <!-- Question -->
+    <div class="control-group <?php echo $errors->has('question') ? 'has-error' : ''; ?>">
+        <label class="control-label" for="question">Question</label>
+
+        <div class="controls">
+            <?php echo Form::text('question', null, array('class'=>'form-control', 'id' => 'question', 'placeholder'=>'Question', 'value'=>Input::old('question'))); ?>
+
+            <?php if($errors->first('question')): ?>
+            <span class="help-block"><?php echo $errors->first('question'); ?></span>
+            <?php endif; ?>
+        </div>
+    </div>
+    <br>
+
+    <!-- Answer -->
+    <div class="control-group <?php echo $errors->has('answer') ? 'has-error' : ''; ?>">
+        <label class="control-label" for="answer">Answer</label>
+
+        <div class="controls">
+            <?php echo Form::textarea('answer', null, array('class'=>'form-control', 'id' => 'answer', 'placeholder'=>'Answer', 'value'=>Input::old('answer'))); ?>
+
+            <?php if($errors->first('answer')): ?>
+            <span class="help-block"><?php echo $errors->first('answer'); ?></span>
+            <?php endif; ?>
+        </div>
+    </div>
+    <br>
+    <!-- Form actions -->
+    <?php echo Form::submit('Save Changes', array('class' => 'btn btn-success')); ?>
+
+    <a href="<?php echo url(getLang(). '/admin/faq'); ?>" class="btn btn-default">&nbsp;Cancel</a>
+    <?php echo Form::close(); ?>
+
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('backend/layout/layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

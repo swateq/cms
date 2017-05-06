@@ -1,0 +1,103 @@
+<?php $__env->startSection('content'); ?>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#notification').show().delay(4000).fadeOut(700);
+
+        // answer settings
+        $(".answer").bind("click", function (e) {
+            var id = $(this).attr('id');
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "<?php echo url( getLang() . '/admin/form-post/" + id + "/toggle-answer/'); ?>",
+                headers: {
+                    'X-CSRF-Token': $('meta[name="_token"]').attr('content')
+                },
+                success: function (response) {
+                    if (response['result'] == 'success') {
+                        var imagePath = (response['changed'] == 1) ? "<?php echo url('/'); ?>/assets/images/answered.png" : "<?php echo url('/'); ?>/assets/images/not_answered.png";
+                        $("#answer-image-" + id).attr('src', imagePath);
+                    }
+                },
+                error: function () {
+                    alert("error");
+                }
+            })
+        });
+    });
+</script>
+<section class="content-header">
+    <h1> Form Post
+        <small> | Control Panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="<?php echo url(getLang(). '/admin'); ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="active">Form Post</li>
+    </ol>
+</section>
+<br>
+<br>
+<div class="col-lg-10">
+    <?php echo $__env->make('flash::message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+    <div class="table-responsive">
+        <?php if($formPosts->count()): ?>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Subject</th>
+                <th>Action</th>
+                <th>Settings</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach( $formPosts as $formPost ): ?>
+            <tr>
+                <td><?php echo $formPost->sender_name_surname; ?></td>
+                <td><?php echo $formPost->sender_email; ?></td>
+                <td><?php echo $formPost->sender_phone_number; ?></td>
+                <td><?php echo $formPost->subject; ?></td>
+                <td>
+                    <div class="btn-group">
+                        <a class="btn btn-danger dropdown-toggle" data-toggle="dropdown" href="#">
+                            Action
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="<?php echo langRoute('admin.form-post.show', array($formPost->id)); ?>">
+                                    <span class="glyphicon glyphicon-eye-open"></span>&nbsp;Show Post
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="<?php echo URL::route('admin.form-post.delete', array($formPost->id)); ?>">
+                                    <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Delete Post
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+                <td>
+                    <a href="#" id="<?php echo $formPost->id; ?>" class="answer">
+                        <img id="answer-image-<?php echo $formPost->id; ?>" src="<?php echo url('/'); ?>/assets/images/<?php echo ($formPost->is_answered) ? 'answered.png' : 'not_answered.png'; ?>"/>
+                    </a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+        <?php else: ?>
+        <div class="alert alert-danger">No results found</div>
+        <?php endif; ?>
+    </div>
+    <div class="pull-left">
+        <ul class="pagination">
+        </ul>
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('backend/layout/layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
