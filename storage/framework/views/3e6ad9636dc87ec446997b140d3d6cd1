@@ -1,0 +1,82 @@
+<?php $__env->startSection('content'); ?>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#notification').show().delay(4000).fadeOut(700);
+    });
+</script>
+<section class="content-header">
+    <h1> Slider
+        <small> | Control Panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="<?php echo url(getLang(). '/admin'); ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="active">Slider</li>
+    </ol>
+</section>
+<br>
+<div class="container">
+    <div class="col-lg-10">
+        <?php echo $__env->make('flash::message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <br>
+
+        <div class="pull-left">
+            <div class="btn-toolbar"><a href="<?php echo langRoute('admin.slider.create'); ?>" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-plus"></span>&nbsp;Add Slider </a></div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <?php if($sliders->count()): ?>
+        <div class="">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach( $sliders as $slider ): ?>
+                <tr>
+                    <td><?php echo $slider->title; ?></td>
+                    <td><?php echo $slider->description; ?></td>
+                    <td>
+                        <div class="btn-group">
+                            <a class="btn btn-danger dropdown-toggle" data-toggle="dropdown" href="#">
+                                Action
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="<?php echo langRoute('admin.slider.edit', array($slider->id)); ?>">
+                                        <span class="glyphicon glyphicon-edit"></span>&nbsp;Edit Slider
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="<?php echo URL::route('admin.slider.delete', array($slider->id)); ?>">
+                                        <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Delete Slider
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <?php else: ?>
+        <div class="alert alert-danger">No results found</div>
+        <?php endif; ?>
+    </div>
+    <div class="pull-left">
+        <ul class="pagination">
+            <?php echo $sliders->render(); ?>
+
+        </ul>
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('backend/layout/layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
