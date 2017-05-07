@@ -45,6 +45,7 @@
                     </li>
                     <li><a href="{{ url(getLang() . '/admin/project') }}"><i class="fa fa-gear"></i> Projects</a>
                     </li>
+                    <li><a href="{{ url(getLang() . '/admin/clients-say') }}"><i class="fa fa-quote-left"></i> Clients Say</a></li>
                     <li>
                         <a href="{{ url(getLang() . '/admin/photo-gallery') }}"><i class="fa fa-camera"></i> Photo Galleries</a>
                     </li>

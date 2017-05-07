@@ -186,18 +186,16 @@ Route::group(array('prefix' => LaravelLocalization::getCurrentLocale()), functio
         Route::get('form-post/{id}/delete', array('as' => 'admin.form-post.delete',
                                                   'uses' => 'FormPostController@confirmDestroy', ))->where('id', '[0-9]+');
 
-        // slider
-        Route::get('/slider', array(
-            'as' => 'admin.slider',
-            function () {
-
-                return View::make('backend/slider/index');
-            }, ));
 
         // slider
         Route::resource('slider', 'SliderController');
         Route::get('slider/{id}/delete', array('as' => 'admin.slider.delete',
                                                'uses' => 'SliderController@confirmDestroy', ))->where('id', '[0-9]+');
+
+       // clients say
+       Route::resource('clients-say', 'ClientsSayController');
+       Route::get('clients-say/{id}/delete', array('as' => 'admin.clients-say.delete',
+                                              'uses' => 'ClientsSayController@confirmDestroy', ))->where('id', '[0-9]+');
 
         // file upload slider
         Route::post('/slider/upload/{id}', array('as' => 'admin.slider.upload.image',
