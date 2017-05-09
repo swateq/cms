@@ -73,6 +73,21 @@ a:focus {
   margin-top: -1px;
   min-width: 180px;
 }
+.language_bar_chooser_menu{
+  list-style:none;
+  padding: 0;
+  margin: 0;
+  float: right;
+  margin-top: 26px;
+}
+.language_bar_chooser_menu .active{
+  opacity: 1 !important;
+}
+.language_bar_chooser_menu > li{
+  float:left;
+  opacity: 0.35;
+  margin-right:10px;
+}
 body > section {
   padding: 50px 0;
 }

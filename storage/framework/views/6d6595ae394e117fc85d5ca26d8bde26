@@ -12,6 +12,20 @@
         <div class="collapse navbar-collapse">
             <?php echo $menus; ?>
 
+            <div>
+                <ul class="language_bar_chooser_menu">
+                    <?php foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties): ?>
+                        <li <?php if($localeCode==getLang()): ?>
+                            class="active"
+                            <?php endif; ?>>
+                          <a hreflang="<?php echo $localeCode; ?>" href="<?php echo LaravelLocalization::getLocalizedURL($localeCode); ?>">
+                            <img src="<?php echo e(url('frontend/images/'.$localeCode.'.png')); ?>">
+                            </img>
+                          </a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
         </div>
     </div>
 </header><!--/header-->
