@@ -1,0 +1,69 @@
+<?php $__env->startSection('content'); ?>
+<?php echo HTML::script('ckeditor/ckeditor.js'); ?>
+
+<section class="content-header">
+    <h1> Page <small> | Update Page</small> </h1>
+    <ol class="breadcrumb">
+        <li><a href="<?php echo url(getLang() . '/admin/page'); ?>"><i class="fa fa-bookmark"></i> Page</a></li>
+        <li class="active">Update Page</li>
+    </ol>
+</section>
+<br>
+<br>
+<div class="container">
+
+    <?php echo Form::open( array( 'route' => array( getLang() . '.admin.page.update', $page->id), 'method' => 'PATCH', 'files'=>true)); ?>
+
+    <!-- Title -->
+    <div class="control-group <?php echo $errors->has('title') ? 'has-error' : ''; ?>">
+        <label class="control-label" for="title">Title</label>
+
+        <div class="controls">
+            <?php echo Form::text('title', $page->title, array('class'=>'form-control', 'id' => 'title', 'placeholder'=>'Title', 'value'=>Input::old('title'))); ?>
+
+            <?php if($errors->first('title')): ?>
+            <span class="help-block"><?php echo $errors->first('title'); ?></span>
+            <?php endif; ?>
+        </div>
+    </div>
+    <br>
+    <!-- Content -->
+    <div class="control-group <?php echo $errors->has('content') ? 'has-error' : ''; ?>">
+        <label class="control-label" for="title">Content</label>
+
+        <div class="controls">
+            <?php echo Form::textarea('content', $page->content, array('class'=>'form-control', 'id' => 'content', 'placeholder'=>'Content', 'value'=>Input::old('content'))); ?>
+
+            <?php if($errors->first('content')): ?>
+            <span class="help-block"><?php echo $errors->first('content'); ?></span>
+            <?php endif; ?>
+        </div>
+    </div>
+    <br>
+    <!-- Published -->
+    <div class="control-group <?php echo $errors->has('is_published') ? 'has-error' : ''; ?>">
+
+        <div class="controls">
+            <label class=""><?php echo Form::checkbox('is_published', 'is_published',$page->is_published); ?> Publish ?</label>
+            <?php if($errors->first('is_published')): ?>
+            <span class="help-block"><?php echo $errors->first('is_published'); ?></span>
+            <?php endif; ?>
+        </div>
+    </div>
+    <br>
+    <!-- Form actions -->
+    <?php echo Form::submit('Update', array('class' => 'btn btn-success')); ?>
+
+    <?php echo Form::close(); ?>
+
+    <script>
+        window.onload = function () {
+            CKEDITOR.replace('content', {
+                "filebrowserBrowseUrl": "<?php echo url('filemanager/show'); ?>"
+            });
+        };
+    </script>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('backend/layout/layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

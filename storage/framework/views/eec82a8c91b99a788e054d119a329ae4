@@ -1,0 +1,40 @@
+<?php $__env->startSection('content'); ?>
+<?php echo HTML::style('ckeditor/contents.css'); ?>
+
+
+<section id="title" class="emerald">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>Faqs</h1>
+                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li class="active">Faq</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section><!--/#title-->
+
+
+<section id="faqs" class="container">
+    <ul class="faq unstyled">
+        <?php foreach($faqs as $faq): ?>
+        <li>
+            <span class="number"><?php echo $faq->id; ?></span>
+            <div>
+                <h4><?php echo $faq->question; ?></h4>
+                <p><?php echo $faq->answer; ?></p>
+            </div>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+</section><!--#faqs-->
+<?php $__env->stopSection(); ?>
+
+
+
+<?php echo $__env->make('frontend/layout/layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

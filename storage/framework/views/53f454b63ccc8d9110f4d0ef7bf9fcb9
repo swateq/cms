@@ -1,0 +1,114 @@
+<?php $__env->startSection('content'); ?>
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1> Role
+        <small> | Add Role</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="<?php echo url(getLang(). '/admin/role'); ?>"><i class="fa fa-user"></i> Role</a></li>
+        <li class="active">Add User</li>
+    </ol>
+</section>
+<br>
+<br>
+<div class="container">
+    <?php echo Form::open(array('action' => '\Fully\Http\Controllers\Admin\RoleController@store')); ?>
+
+
+    <!-- Role Name -->
+    <div class="control-group <?php echo $errors->has('name') ? 'has-error' : ''; ?>">
+        <label class="control-label" for="name">Name</label>
+
+        <div class="controls">
+            <?php echo Form::text('name', null, array('class'=>'form-control', 'id' => 'name', 'placeholder'=>'Role Name', 'value'=>Input::old('name'))); ?>
+
+            <?php if($errors->first('name')): ?>
+            <span class="help-block"><?php echo $errors->first('name'); ?></span>
+            <?php endif; ?>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <div class="checkbox">
+        <input type="hidden" value="0" name="permissions[admin.dashboard]">
+        <label>
+            <input type="checkbox" value="1" name="permissions[admin.dashboard]"> Dashboard
+        </label>
+    </div>
+    <hr>
+    <div class="checkbox">
+        <input type="hidden" value="0" name="permissions[admin.settings]">
+        <input type="hidden" value="0" name="permissions[admin.settings.save]">
+        <label>
+            <input type="checkbox" value="1" name="permissions[admin.settings]"> Settings Index
+            <input type="checkbox" value="1" name="permissions[admin.settings.save]"> Settings Save
+        </label>
+    </div>
+    <hr>
+    <div class="checkbox">
+        <input type="hidden" value="0" name="permissions[admin.log]">
+        <label>
+            <input type="checkbox" value="1" name="permissions[admin.log]"> Log
+        </label>
+    </div>
+    <hr>
+    <div class="checkbox">
+       <input type="hidden" value="0" name="permissions[admin.form-post.index]">
+        <label>
+            <input type="checkbox" value="1" name="permissions[admin.form-post.index]"> Form Post
+        </label>
+    </div>
+    <hr>
+    <div class="table-responsive">
+        <table class="table table-condensed table-permissions table-checkboxes">
+            <thead>
+            <tr>
+                <th>Modules</th>
+                <th>Index</th>
+                <th>View</th>
+                <th>Create</th>
+                <th>Store</th>
+                <th>Edit</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <?php foreach(Config::get('fully.modules') as $module=>$value): ?>
+            <tr>
+                <td><?php echo ucwords(str_replace('_', ' ', $module)); ?>
+
+                    <input type="hidden" value="0" name="permissions[admin.<?php echo $module; ?>.index]">
+                    <input type="hidden" value="0" name="permissions[admin.<?php echo $module; ?>.view]">
+                    <input type="hidden" value="0" name="permissions[admin.<?php echo $module; ?>.create]">
+                    <input type="hidden" value="0" name="permissions[admin.<?php echo $module; ?>.store]">
+                    <input type="hidden" value="0" name="permissions[admin.<?php echo $module; ?>.edit]">
+                    <input type="hidden" value="0" name="permissions[admin.<?php echo $module; ?>.update]">
+                    <input type="hidden" value="0" name="permissions[admin.<?php echo $module; ?>.destroy]">
+                </td>
+                <td><input type="checkbox" value="1" name="permissions[admin.<?php echo $module; ?>.index]"></td>
+                <td><input type="checkbox" value="1" name="permissions[admin.<?php echo $module; ?>.view]"></td>
+                <td><input type="checkbox" value="1" name="permissions[admin.<?php echo $module; ?>.create]"></td>
+                <td><input type="checkbox" value="1" name="permissions[admin.<?php echo $module; ?>.store]"></td>
+                <td><input type="checkbox" value="1" name="permissions[admin.<?php echo $module; ?>.edit]"></td>
+                <td><input type="checkbox" value="1" name="permissions[admin.<?php echo $module; ?>.update]"></td>
+                <td><input type="checkbox" value="1" name="permissionsadmin.[<?php echo $module; ?>.destroy]"></td>
+            </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <!-- Form actions -->
+    <?php echo Form::submit('Save Changes', array('class' => 'btn btn-success')); ?>
+
+    <a href="<?php echo langUrl('/admin/role'); ?>"
+       class="btn btn-default">
+        &nbsp;Cancel
+    </a>
+    <?php echo Form::close(); ?>
+
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('backend/layout/layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
