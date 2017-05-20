@@ -35,7 +35,7 @@
                                             </h5>
 
                                             <div class="overlay">
-                                                <a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas" href="{!! url($item->path) !!}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                                                <a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas" href="{!! URL::route('dashboard.project.show', array('slug'=>$item->slug)) !!}"><i class="icon-eye-open"></i></a>
                                             </div>
                                         </div>
                                     </div>

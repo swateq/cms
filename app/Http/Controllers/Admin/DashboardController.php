@@ -3,6 +3,7 @@
 namespace Fully\Http\Controllers\Admin;
 
 use Fully\Http\Controllers\Controller;
+use Rap2hpoutre\LaravelLogViewer\LaravelLogViewer;
 
 /**
  * Class DashboardController.
@@ -13,6 +14,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('backend/layout/dashboard', compact('chartData'))->with('active', 'home');
+        $log = LaravelLogViewer::all();
+        return view('backend/layout/dashboard', compact('chartData','log'))->with('active', 'home');
     }
 }

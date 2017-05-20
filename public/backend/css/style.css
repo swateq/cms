@@ -1,4 +1,31 @@
 .pageheader h2{
-
     margin-left: 10px;
+}
+.box-widget{
+    border: none;
+    position: relative;
+}
+
+.widget-user-header{
+  padding: 20px;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.widget-user-image>img{
+  width: 65px;
+  height: auto;
+  float: left;
+}
+
+.widget-user-username{
+  margin-left: 75px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-style: 25px;
+  font-weight: 300;
+}
+
+.widget-user-desc{
+  margin-left: 75px;
 }
